@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    /> -->
+    <title>Abdelkhalek Offline</title>
+    <!-- disable discovery by search engines -->
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- =========================== -->
+    <meta name="description" content="Made with ❤️ by Ibrahem" />
+    <script src="js/cache.js"></script>
+    <link rel="icon" type="image/svg+xml" href="asset/favicon.svg" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="js/3rd-party/tourguidejs/css/tour.min.css">
+    <!-- disable browser naive cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- =========================== -->
+    <!-- disable google translate -->
+    <meta name="google" content="notranslate" /> 
+    <!-- =========================== -->
+  </head>
+  <body>
+    <h1 class="title">Abdelkhalek Offline</h1>
+    <header>
+      <label>فاتورة مبيعات</label>
+      <div>
+        <label for="inovice-open-time">توقيت الفتح</label>
+        <input
+          type="text"
+          id="inovice-open-time"
+          name="inovice-open-time"
+          placeholder="<توقيت الفتح>"
+          disabled
+        />
+      </div>
+      <div class="mobile-campaign">
+        <!-- 0/5000 EGP -->
+        <img src="asset/emoji.mobile.svg" />
+        Mobile version is under development
+        <img src="asset/emoji.mobile.svg" />
+        <!-- <img src="asset/emoji.hand.money.svg" /> -->
+      </div>
+      <button id="start-tour-btn" class="help-tour-btn" aria-label="Start Tour Guide" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 35px;">
+            <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 16H13V18H11V16ZM12.1612 6C14.3703 6 15.6826 7.46194 15.3406 9.61567C15.1121 11.0548 14.0538 11.9056 13.2373 12.5606C12.7485 12.9528 12.5 13.3134 12.5 13.8889V14H10.5V13.5278C10.5 12.2356 11.1966 11.4795 11.9464 10.878C12.5323 10.408 13.2104 9.89725 13.3408 9.0759C13.4867 8.15617 12.9304 7.8 12.1612 7.8C11.1917 7.8 10.6389 8.44111 10.5144 9.5H8.5C8.68117 7.37839 10.1265 6 12.1612 6Z"/>
+        </svg>
+    </button>
+    </header>
+    <main>
+      <div id="inovice-form">
+        <div class="upper">
+          <div>
+            <label for="inovice-id">رقم الفاتورة</label>
+            <input
+              type="text"
+              id="inovice-id"
+              name="inovice-id"
+              placeholder="<رقم الفاتورة>"
+              disabled
+            />
+          </div>
+          <div>
+            <label for="inovice-date">التاريخ</label>
+            <input
+              type="text"
+              id="inovice-date"
+              name="inovice-date"
+              placeholder="<التاريخ>"
+              disabled
+            />
+          </div>
+          <div class="inovice-item-name">
+            <label for="inovice-item-name">الصنف</label>
+            <input
+              type="text"
+              id="inovice-item-name"
+              name="inovice-item-name"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="lower">
+          <div>
+            <label for="inovice-notes">ملاحظـــات</label>
+            <input type="text" id="inovice-notes" name="inovice-notes" />
+          </div>
+        </div>
+      </div>
+      <div id="inovice-list">
+        <div id="inovice-items">
+          <table class="auto-fit-table">
+            <thead>
+              <tr>
+                <th class="shrink-cell" data-id="master-control">&ensp;</th>
+                <th class="shrink-cell">كود الصنف</th>
+                <th class="shrink-cell">كود دولي</th>
+                <th class="expand-cell">اسم الصنـف</th>
+                <th class="expand-cell">اسم الصنـف انجليزي</th>
+                <th class="shrink-cell">العبوة</th>
+                <th class="expand-cell" id="th-description">الوصف</th>
+                <th class="shrink-cell" id="th-price">السعـر</th>
+                <th class="shrink-cell">الكمية</th>
+                <th class="shrink-cell">سعر بيع</th>
+                <th class="shrink-cell">القيمــة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="inovice-item">
+                <td class="shrink-cell" data-id="control">&ensp;</td>
+                <td class="shrink-cell">
+                  <input type="text" data-id="code" autofocus />
+                </td>
+                <td class="shrink-cell">
+                  <input type="text" data-id="international-code" />
+                </td>
+                <td class="expand-cell">
+                  <input type="text" data-id="item-name" />
+                </td>
+                <td class="expand-cell">
+                  <input type="text" data-id="english-name" />
+                </td>
+                <td class="shrink-cell">
+                  <input data-id="unit" type="number" min="0" />
+                </td>
+                <td class="expand-cell" data-id="description"></td>
+                <td class="shrink-cell" data-id="price"></td>
+                <td class="shrink-cell">
+                  <input data-id="quantity" type="number" min="0" />
+                </td>
+                <td class="shrink-cell">
+                  <input data-id="sell-price" type="number" min="0" />
+                </td>
+                <td class="shrink-cell" data-id="value"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div id="inovice-items-log">...</div> -->
+      </div>
+    </main>
+    <footer>
+      <label>السجل:</label>
+      <button id="btn-first-inovice" class="btn-log">⏭</button>
+      <button id="btn-prev-inovice" class="btn-log">▶</button>
+      <input type="number" min="1" id="inovice-index" />
+      <button id="btn-next-inovice" class="btn-log">◀</button>
+      <button id="btn-last-inovice" class="btn-log">⏮</button>
+      <label>من</label>
+      <label id="inovice-count"></label>
+      <input
+        type="button"
+        id="inovice-print-lang"
+        name="inovice-print-lang"
+        placeholder="<لغة الطباعة>"
+      />
+      <label for="inovice-print-lang">لغة الطباعة</label>
+      <button id="btn-new-inovice"><span class="underline">ج</span>ديد</button>
+      <button id="btn-del-inovice"><span class="underline">ح</span></span>ذف</button>
+      <button id="print-inovice"><span class="underline">ط</span>باعة</button>
+      <label for="inovice-total">الاجمالي</label>
+      <input
+        type="text"
+        id="inovice-total"
+        name="inovice-total"
+        placeholder="0"
+        disabled
+      />
+    </footer>
+    <h5 class="footer">
+      ~* Made with ❤️ by
+      <a href="https://github.com/ibrahemesam" target="_blank">Ibrahem</a> *~
+    </h5>
+    <div id="search-box">
+      <div class="search-toggle">▼</div>
+      <div class="search-dropdown" hidden></div>
+    </div>
+    <!-- THANK YOU, https://sql.js.org -->
+    <script src="js/3rd-party/sql.js/sql-wasm.js"></script>
+    <!-- THANK YOU, https://github.com/Joe12387/detectIncognito -->
+    <script src="js/3rd-party/deInc.js"></script>
+    <!-- THANK YOU, https://sweetalert.js.org -->
+    <!-- <script src="js/3rd-party/sweetalert.min.js"></script> -->
+    <!-- THANK YOU, https://sweetalert2.github.io -->
+    <!-- <script src="js/3rd-party/sweetalert2@11.js"></script> -->
+    <!-- THANK YOU, https://github.com/darkcris1/calerts -->
+    <script src="js/3rd-party/calert.min.js"></script>
+    <script src="js/3rd-party/tourguidejs/tour.js" crossorigin="anonymous" referrerpolicy="no-referrer" type="module"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

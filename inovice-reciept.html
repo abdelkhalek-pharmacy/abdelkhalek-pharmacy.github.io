@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- disable discovery by search engines -->
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- =========================== -->
+    <!-- disable browser naive cache -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- =========================== -->
+    <title>Invoice Reciept</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <style>
+      html[lang="ar"],
+      html[lang="ar"] * {
+        font-family: "GeSsTwoComma", Helvetica, sans-serif;
+      }
+      @media print {
+        @page {
+          margin: 0; /* Removes default headers and footers */
+          size: 72mm 210mm;
+          padding: 0;
+        }
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          size: 72mm 210mm;
+        }
+
+        .print-frame body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact; /* Adds missing background color */
+        }
+      }
+      body {
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* padding: 20px; */
+        margin: 0;
+        padding: 8px;
+        margin-right: 10px;
+        /* margin-left: 5px; */
+        margin-bottom: 10px;
+      }
+      html[lang="ar"] {
+        direction: rtl;
+      }
+      h1.title {
+        font-family: BeyondWonderland !important;
+        font-weight: normal;
+        font-size: x-large !important;
+        border: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+      }
+      .header {
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: small;
+        line-height: 1.5;
+      }
+      .header > strong::after {
+        content: "Invoice Date: ";
+        font-weight: normal !important;
+      }
+      html[lang="ar"] .header > strong::after {
+        content: "التاريخ : ";
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 5px;
+      }
+      th,
+      td {
+        border: 1px dotted #000;
+        padding: 6px 4px;
+        text-align: left;
+        font-size: 14px;
+      }
+      th {
+        font-weight: bold;
+      }
+      th.idx::after {
+        content: "No.";
+      }
+      html[lang="ar"] th.idx::after {
+        content: "م";
+      }
+      th.name {
+        width: max-content;
+      }
+      th.name::after {
+        content: "Item Name";
+      }
+      html[lang="ar"] th.name::after {
+        content: "اسم الصنف";
+      }
+      th.qty::after {
+        content: "Qty.";
+      }
+      html[lang="ar"] th.qty::after {
+        content: "الكمية";
+      }
+      th.price::after {
+        content: "Price";
+      }
+      html[lang="ar"] th.price::after {
+        content: "السعر";
+      }
+      th.value::after {
+        content: "Value";
+      }
+      html[lang="ar"] th.value::after {
+        content: "القيمة";
+      }
+
+      .total-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-bottom: 25px;
+      }
+      .total-box {
+        border: 1px dotted #000;
+        display: flex;
+      }
+      .total-label {
+        flex: 1;
+        padding: 6px;
+        text-align: center;
+        border-inline-end: 1px dotted #000;
+        /* font-weight: bold; */
+      }
+      .total-label::after {
+        content: "Total";
+      }
+      html[lang="ar"] .total-label::after {
+        content: "إجمالي";
+      }
+      td:not(:nth-child(2)),
+      th {
+        text-align: center;
+      }
+      td:nth-child(2) {
+        text-align: left;
+      }
+      html[lang="ar"] td:nth-child(2) {
+        text-align: right;
+      }
+      .total-value {
+        flex: 1;
+        padding: 6px;
+        text-align: right;
+        /* font-weight: bold; */
+        width: max-content;
+      }
+      .footer {
+        text-align: center;
+        font-size: small;
+        height: max-content;
+        /* line-height: 1.8; */
+        display: block;
+        clear: both;
+        break-after: always; /* Modern standard */
+        page-break-after: always; /* Legacy fallback */
+      }
+      .footer::after {
+        content: "Medications can be returned\A within 24 hours,\A except for refrigerated medicines.\A Wishing you a speedy recovery.\A Pharmacy Management";
+        white-space: pre;
+      }
+      html[lang="ar"] .footer::after {
+        content: "الأدوية تسترد خلال 24 ساعة ماعدا أدوية الثلاجة\A مع تمنياتنا لكم بالشفاء العاجل\A إدارة الصيدلية";
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Pharmacy</h1>
+    <div class="header">
+      <strong></strong
+      ><span id="date"
+        ><script>
+          function setDate() {
+            const now = new Date();
+
+            const formatter = new Intl.DateTimeFormat(
+              document.documentElement.lang + "-GB",
+              {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+              },
+            );
+
+            const parts = formatter.formatToParts(now).reduce((acc, part) => {
+              acc[part.type] = part.value;
+              return acc;
+            }, {});
+
+            // Arrange the variables in YYYY/MM/DD order
+            const ymdFormat = `${parts.year}/${parts.month}/${parts.day} ${parts.hour}:${parts.minute}:${parts.second} ${parts.dayPeriod.toUpperCase()}`;
+
+            document.getElementById("date").innerHTML = ymdFormat;
+          }
+        </script></span
+      >
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="idx"></th>
+          <th class="name"></th>
+          <th class="qty"></th>
+          <th class="price"></th>
+          <th class="value"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total-container">
+      <div class="total-box">
+        <div class="total-label"></div>
+        <div class="total-value" id="total-value"></div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+    <script>
+      window.printInovice = async ({ items, total }) => {
+        let tbody = document.querySelector("tbody");
+        tbody.innerHTML = items
+          .map((item, idx) => {
+            return `
+            <tr>
+              <td class="idx">${idx + 1}</td>
+              <td class="name">${item.name}</td>
+              <td class="qty">${item.quantity}</td>
+              <td class="price">${item.price}</td>
+              <td class="value">${item.value}</td>
+            </tr>
+          `;
+          })
+          .join("");
+
+        document.getElementById("total-value").innerHTML = total;
+        setDate();
+        await document.fonts.ready; // wait for fonts to load
+        window.print();
+      };
+    </script>
+  </body>
+</html>

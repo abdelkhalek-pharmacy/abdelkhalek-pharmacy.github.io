@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "BeyondWonderland";
+  src: url(../asset/fonts/Beyond-Wonderland.ttf);
+}
+
+@font-face {
+  font-family: "GeSsTwo";
+  src: url(../asset/fonts/GE.SS.Two.Medium.ttf);
+  unicode-range: U+30-39;
+}
+
+@font-face {
+  font-family: "GeSsTwoComma";
+  src: url(../asset/fonts/GE.SS.Two.Medium.ttf);
+  unicode-range: U+2E-39;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Helvetica"),
+    url("../asset/fonts/Helvetica.woff") format("woff");
+}
+
+* {
+  font-family: "Helvetica";
+}
