@@ -114,16 +114,16 @@ body > header .pulse, body > header .mobile-campaign {
     box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
   }
 }
-body > header .alive-clickable, body > header .help-tour-btn, body > header .mobile-campaign {
+body > header .alive-clickable, body > header button.btn-fullscreen, body > header .help-tour-btn, body > header .mobile-campaign {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   /* Hover effects to make it feel responsive */
 }
-body > header .alive-clickable:hover, body > header .help-tour-btn:hover, body > header .mobile-campaign:hover {
+body > header .alive-clickable:hover, body > header button.btn-fullscreen:hover, body > header .help-tour-btn:hover, body > header .mobile-campaign:hover {
   filter: contrast(105%) brightness(115%);
   transform: scale(1.05);
 }
-body > header .alive-clickable:active, body > header .help-tour-btn:active, body > header .mobile-campaign:active {
+body > header .alive-clickable:active, body > header button.btn-fullscreen:active, body > header .help-tour-btn:active, body > header .mobile-campaign:active {
   transform: scale(0.95);
 }
 body > header .help-tour-btn {
@@ -137,6 +137,18 @@ body > header .help-tour-btn {
   padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   height: max-content;
+}
+body > header button.btn-fullscreen {
+  height: 100%;
+  background-image: url(../asset/fullscreen.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  border-radius: 15px;
+  margin-right: 5px;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 body > main {
   display: flex;
@@ -669,6 +681,12 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  html, body {
+    overflow: hidden;
+  }
+  body > * {
+    padding: 0.5dvh;
+  }
   body > * + * {
     margin-top: 1%;
   }
@@ -729,12 +747,108 @@ footer {
     left: initial;
     right: 1px;
   }
+  body > main div#inovice-list table td:has(#search-box) input {
+    text-indent: 20px;
+    direction: rtl;
+  }
+  body > main div#inovice-list table td:not(:has(#search-box)) {
+    padding-inline-start: 2%;
+  }
   body > main div#inovice-list table td::before {
     font-size: small;
     position: absolute;
-    left: 0;
     text-align: left;
     content: attr(data-label);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.5%;
+    width: 100%;
+    z-index: 1;
+  }
+  body > main div#inovice-list table tr + tr {
+    border-top: 5px dashed lightgreen;
+  }
+  body > main div#inovice-list table tr:first-child > td:first-child {
+    border-top: 2px solid black;
+  }
+  body > footer {
+    flex-wrap: wrap;
+    row-gap: 3px;
+  }
+  body > footer button, body > footer input[type=button], body > footer label {
+    font-size: medium !important;
+  }
+  body > footer button:not(.btn-log), body > footer input[type=button]:not(.btn-log), body > footer label:not(.btn-log) {
+    border-radius: 5px;
+  }
+  body > footer .btn-log {
+    font-size: 93% !important;
+  }
+  body > footer :nth-child(1 of .btn-log) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  body > footer :nth-last-child(1 of .btn-log) {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  body > footer input#inovice-index {
+    min-width: 4ch;
+  }
+  body > footer button {
+    flex: 1;
+  }
+  body > footer button:not(input) {
+    zoom: 1.2;
+  }
+  body > footer button#btn-new-inovice, body > footer button#btn-del-inovice, body > footer button#print-inovice {
+    min-width: 30%;
+  }
+  body > footer .flex-row-break-after::after {
+    color: red;
+    width: 100%;
+    content: "";
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: block;
+    outline: none;
+    border: none;
+  }
+  body > footer .flex-row-break-after {
+    margin-inline-end: 0;
+  }
+  body > footer label[for=inovice-total] {
+    visibility: hidden;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  body > footer label[for=inovice-total]::after {
+    position: absolute;
+    content: "الإجمالي";
+    color: white;
+    z-index: 1;
+    top: calc(100% + 3px);
+    visibility: visible;
+    left: -100%;
+    transform: translate(4px, 4px);
+    background: lightgreen;
+    border-radius: 5px;
+    zoom: 0.8;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: medium;
+    font-weight: bold;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  body > footer input#inovice-total {
+    font-size: small !important;
+    border-radius: 5px;
+    z-index: -1;
+  }
+  body .footer {
+    font-size: smaller;
   }
   .mobile-campaign {
     display: none !important;

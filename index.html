@@ -51,6 +51,10 @@
             <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 16H13V18H11V16ZM12.1612 6C14.3703 6 15.6826 7.46194 15.3406 9.61567C15.1121 11.0548 14.0538 11.9056 13.2373 12.5606C12.7485 12.9528 12.5 13.3134 12.5 13.8889V14H10.5V13.5278C10.5 12.2356 11.1966 11.4795 11.9464 10.878C12.5323 10.408 13.2104 9.89725 13.3408 9.0759C13.4867 8.15617 12.9304 7.8 12.1612 7.8C11.1917 7.8 10.6389 8.44111 10.5144 9.5H8.5C8.68117 7.37839 10.1265 6 12.1612 6Z"/>
         </svg>
     </button>
+    <button id="btn-fullscreen" class="btn-fullscreen">
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <br/>
+    </button>
     </header>
     <main>
       <div id="inovice-form">
@@ -112,7 +116,9 @@
             </thead>
             <tbody>
               <tr id="inovice-item">
-                <td class="shrink-cell" data-id="control">&ensp;</td>
+                <td class="shrink-cell" data-id="control">
+                  <br/>
+                </td>
                 <td class="shrink-cell">
                   <input type="text" data-id="code" autofocus/>
                 </td>
@@ -168,7 +174,7 @@
       <label for="inovice-print-lang">لغة الطباعة</label>
       <button id="btn-new-inovice"><span class="underline">ج</span>ديد</button>
       <button id="btn-del-inovice"><span class="underline">ح</span></span>ذف</button>
-      <button id="print-inovice"><span class="underline">ط</span>باعة</button>
+      <button id="print-inovice" class="flex-row-break-after"><span class="underline">ط</span>باعة</button>
       <label for="inovice-total">الاجمالي</label>
       <input
         type="text"
