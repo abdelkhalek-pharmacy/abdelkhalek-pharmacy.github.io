@@ -516,10 +516,9 @@ body footer label[for=inovice-total]:hover:active {
 h1.title {
   font-family: BeyondWonderland;
   font-weight: normal;
-  font-size: x-large !important;
   border: none;
   text-align: center;
-  font-size: 40pt !important;
+  font-size: 40pt;
   margin: 0;
   color: purple;
   padding: 0;
@@ -668,3 +667,78 @@ main,
 footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+@media only screen and (max-width: 600px) {
+  body > * + * {
+    margin-top: 1%;
+  }
+  body h1.title {
+    font-size: medium;
+    border: 2px solid purple;
+    border-radius: 5px;
+    padding-bottom: 0.6%;
+  }
+  body > header {
+    padding: 0;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  body > header label {
+    font-size: medium;
+  }
+  body > header div {
+    justify-content: end;
+  }
+  body > header div label {
+    min-width: max-content;
+    margin-left: 4%;
+  }
+  body > header div input#inovice-open-time {
+    width: 15ch;
+    font-size: medium;
+  }
+  body > header button.help-tour-btn {
+    zoom: 0.6;
+  }
+  body > main div#inovice-form *, body > main div#inovice-form input {
+    font-size: medium;
+  }
+  body > main div#inovice-form div.inovice-item-name {
+    display: none;
+  }
+  body > main div#inovice-list table {
+    font-size: medium;
+  }
+  body > main div#inovice-list table thead {
+    display: none;
+  }
+  body > main div#inovice-list table tr, body > main div#inovice-list table td {
+    display: block !important;
+  }
+  body > main div#inovice-list table tr.shrink-cell, body > main div#inovice-list table tr.expand-cell, body > main div#inovice-list table td.shrink-cell, body > main div#inovice-list table td.expand-cell {
+    width: initial !important;
+    max-height: initial !important;
+  }
+  body > main div#inovice-list table td {
+    position: relative;
+  }
+  body > main div#inovice-list table td, body > main div#inovice-list table td input {
+    text-align: right !important;
+  }
+  body > main div#inovice-list table td #search-box .search-toggle {
+    left: initial;
+    right: 1px;
+  }
+  body > main div#inovice-list table td::before {
+    font-size: small;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    content: attr(data-label);
+  }
+  .mobile-campaign {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
