@@ -756,7 +756,7 @@ footer {
     right: 1px;
   }
   body > main div#inovice-list table td:has(#search-box) input {
-    text-indent: 20px;
+    text-indent: 8%;
     direction: rtl;
   }
   body > main div#inovice-list table td:not(:has(#search-box)) {
@@ -829,13 +829,13 @@ footer {
   body > footer .flex-row-break-after {
     margin-inline-end: 0;
   }
-  body > footer label[for=inovice-total] {
+  body > footer alabel[for=inovice-total] {
     visibility: hidden;
     width: 0;
     margin: 0;
     padding: 0;
   }
-  body > footer label[for=inovice-total]::after {
+  body > footer alabel[for=inovice-total]::after {
     position: absolute;
     content: "الإجمالي";
     color: white;
@@ -858,6 +858,7 @@ footer {
     font-size: small !important;
     border-radius: 5px;
     z-index: -1;
+    width: 100%;
   }
   body .footer {
     font-size: smaller;
