@@ -462,6 +462,13 @@ body footer input#inovice-index {
   max-width: 4%;
   margin: 0;
 }
+body footer div.container-print-lang {
+  display: flex;
+  flex-direction: row;
+}
+body footer div.container-print-lang * + * {
+  margin-inline-start: 4px;
+}
 body footer label[for=inovice-print-lang] {
   color: #000e5d;
   display: flex;
@@ -482,7 +489,8 @@ body footer div#inovices-log {
   display: inline-block;
 }
 body footer button + *,
-body footer input[type=button] + * {
+body footer input[type=button] + *,
+body footer div:has(input[type=button]) + * {
   margin-left: 0.25em;
 }
 body footer .btn-log {
@@ -764,12 +772,16 @@ footer {
     left: 1.5%;
     width: 100%;
     z-index: 1;
+    pointer-events: none;
   }
   body > main div#inovice-list table tr + tr {
     border-top: 5px dashed lightgreen;
   }
   body > main div#inovice-list table tr:first-child > td:first-child {
     border-top: 2px solid black;
+  }
+  body > main div#inovice-list table tr:last-child:not(:has(input:focus)) td[data-id=control]::after {
+    top: calc(50% + 1px);
   }
   body > footer {
     flex-wrap: wrap;
@@ -793,16 +805,16 @@ footer {
     border-bottom-left-radius: 5px;
   }
   body > footer input#inovice-index {
-    min-width: 4ch;
+    min-width: 7ch;
+  }
+  body > footer label#inovice-count + * {
+    margin-right: 0.5em;
   }
   body > footer button {
     flex: 1;
   }
   body > footer button:not(input) {
     zoom: 1.2;
-  }
-  body > footer button#btn-new-inovice, body > footer button#btn-del-inovice, body > footer button#print-inovice {
-    min-width: 30%;
   }
   body > footer .flex-row-break-after::after {
     color: red;
