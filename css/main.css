@@ -593,6 +593,7 @@ td:has(#search-box):has(input:focus) {
 }
 td:has(#search-box) {
   position: relative;
+  z-index: 1;
 }
 td:has(#search-box) input[data-id=english-name] {
   text-indent: 26px;
@@ -651,6 +652,7 @@ td:has(#search-box):has(input:not(:focus)) .search-toggle {
   display: none !important;
 }
 td:has(#search-box) .search-dropdown {
+  top: -1px;
   direction: ltr;
   background-color: #efeee2;
   width: max-content;
@@ -780,6 +782,19 @@ footer {
     z-index: 1;
     pointer-events: none;
   }
+  body > main div#inovice-list table td .search-dropdown {
+    left: unset;
+    right: 0;
+    transform: translate(-1px);
+    touch-action: none;
+  }
+  body > main div#inovice-list table td .search-dropdown label {
+    touch-action: none;
+  }
+  body > main div#inovice-list table td .search-dropdown label:not(.selected):hover {
+    cursor: unset;
+    background-color: transparent !important;
+  }
   body > main div#inovice-list table tr + tr {
     border-top: 5px dashed lightgreen;
   }
@@ -814,7 +829,7 @@ footer {
     min-width: 7ch;
   }
   body > footer label#inovice-count + * {
-    margin-right: 0.5em;
+    margin-right: 0;
   }
   body > footer button {
     flex: 1;
