@@ -462,12 +462,18 @@ body footer input#inovice-index {
   max-width: 4%;
   margin: 0;
 }
-body footer div.container-print-lang {
+body footer div.container-print-lang, body footer div.container-inovice-total {
   display: flex;
   flex-direction: row;
 }
-body footer div.container-print-lang * + * {
+body footer div.container-print-lang * + *, body footer div.container-inovice-total * + * {
   margin-inline-start: 4px;
+}
+body footer div.container-inovice-total {
+  flex-grow: 1;
+}
+body footer div.container-inovice-total:last-child {
+  margin: 0;
 }
 body footer label[for=inovice-print-lang] {
   color: #000e5d;
@@ -828,31 +834,6 @@ footer {
   }
   body > footer .flex-row-break-after {
     margin-inline-end: 0;
-  }
-  body > footer alabel[for=inovice-total] {
-    visibility: hidden;
-    width: 0;
-    margin: 0;
-    padding: 0;
-  }
-  body > footer alabel[for=inovice-total]::after {
-    position: absolute;
-    content: "الإجمالي";
-    color: white;
-    z-index: 1;
-    top: calc(100% + 3px);
-    visibility: visible;
-    left: -100%;
-    transform: translate(4px, 4px);
-    background: lightgreen;
-    border-radius: 5px;
-    zoom: 0.8;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: medium;
-    font-weight: bold;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
   }
   body > footer input#inovice-total {
     font-size: small !important;
